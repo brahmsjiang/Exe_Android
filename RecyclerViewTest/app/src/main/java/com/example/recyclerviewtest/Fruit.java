@@ -1,4 +1,4 @@
-package com.example.listviewtest;
+package com.example.recyclerviewtest;
 
 public class Fruit {
     private String name;
