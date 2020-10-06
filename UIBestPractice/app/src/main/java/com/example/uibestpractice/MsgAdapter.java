@@ -40,6 +40,7 @@ public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
+    //first time of load & slip bar
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Msg msg = mMsgList.get(position);

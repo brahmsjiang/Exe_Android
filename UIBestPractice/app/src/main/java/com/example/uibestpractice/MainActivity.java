@@ -16,10 +16,10 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private List<Msg> msgList = new ArrayList<>();
-    private EditText inputText;
-    private Button send;
     private RecyclerView msgRecyclerView;
     private MsgAdapter adapter;
+    private EditText inputText;
+    private Button send;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!"".equals(content)) {
                     Msg msg = new Msg(content, Msg.TYPE_SENT);
                     msgList.add(msg);
-                    adapter.notifyItemInserted(msgList.size() - 1);
+                    adapter.notifyItemInserted(msgList.size() - 1);//notify list that new data available
                     msgRecyclerView.scrollToPosition(msgList.size() - 1);
                     inputText.setText("");
                 }
