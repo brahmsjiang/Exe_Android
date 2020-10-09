@@ -9,11 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+// NewsContentFragment.java <==> news_content_frag.xml
 public class NewsContentFragment extends Fragment {
 
     private View view;
 
-    @Override
+    @Override   //load layout
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.news_content_frag, container, false);
         return view;
