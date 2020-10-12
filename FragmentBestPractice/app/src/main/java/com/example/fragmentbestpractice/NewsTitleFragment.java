@@ -20,9 +20,10 @@ public class NewsTitleFragment extends Fragment {
 
     private boolean isTwoPane;
 
-    @Nullable
+    // when frag load layout
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Fragment use inflate to load view
         View view = inflater.inflate(R.layout.news_title_frag, container, false);
         RecyclerView newsTitleRecyclerView = (RecyclerView) view.findViewById(R.id.news_title_recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -54,7 +55,7 @@ public class NewsTitleFragment extends Fragment {
     }
 
 
-
+    // when frag-related activity has created
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -65,6 +66,7 @@ public class NewsTitleFragment extends Fragment {
         }
     }
 
+    // inner class
     class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         private List<News> mNewList;
@@ -81,9 +83,9 @@ public class NewsTitleFragment extends Fragment {
             mNewList = newsList;
         }
 
-        @NonNull
+        // when create viewholder
         @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_item, parent, false);
             final ViewHolder holder = new ViewHolder(view);
             view.setOnClickListener(new View.OnClickListener() {
@@ -101,8 +103,9 @@ public class NewsTitleFragment extends Fragment {
             return holder;
         }
 
+        // when every sub-item of recyclerview scrolled into the screen
         @Override
-        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        public void onBindViewHolder(ViewHolder holder, int position) {
             News news = mNewList.get(position);
             holder.newsTitleText.setText(news.getTitle());
         }
